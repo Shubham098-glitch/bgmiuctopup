@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buy BGMI UC - Instant Delivery | BGMI UC TOPUP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .hero {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1602673221574-3d3b2d2f9b73?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80') no-repeat center center/cover;
+      height: 70vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      max-width: 800px;
+      padding: 0 20px;
+      z-index: 2;
+    }
+    
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 20px;
+      background: linear-gradient(45deg, #00ff88, #00b3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+      animation: fadeInUp 1s ease-out;
+    }
+    
+    .hero p {
+      font-size: 1.2rem;
+      color: #ddd;
+      margin-bottom: 30px;
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.3s forwards;
+    }
+    
+    .hero .btn {
+      opacity: 0;
+      animation: fadeInUp 1s ease-out 0.6s forwards;
+    }
+    
+    .plans-section {
+      padding: 80px 0;
+      background: #0f0f0f;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: #fff;
+      margin-bottom: 15px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #00ff88, #00b3ff);
+      border-radius: 2px;
+    }
+    
+    .section-title p {
+      color: #aaa;
+      font-size: 1.1rem;
+    }
+    
+    .plans-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .plan-card {
+      background: #1e1e1e;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .plan-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 255, 136, 0.2);
+    }
+    
+    .plan-header {
+      background: linear-gradient(135deg, #1e1e1e, #2d2d2d);
+      padding: 25px;
+      text-align: center;
+      border-bottom: 2px solid #333;
+    }
+    
+    .plan-uc {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 10px;
+      background: linear-gradient(45deg, #00ff88, #00b3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .plan-price {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: 5px;
+    }
+    
+    .plan-price span {
+      font-size: 1rem;
+      color: #aaa;
+      text-decoration: line-through;
+      margin-left: 5px;
+    }
+    
+    .plan-save {
+      display: inline-block;
+      background: rgba(0, 255, 136, 0.2);
+      color: #00ff88;
+      font-size: 0.8rem;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-top: 5px;
+    }
+    
+    .plan-features {
+      padding: 25px;
+    }
+    
+    .feature {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+      color: #ddd;
+    }
+    
+    .feature i {
+      color: #00ff88;
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+    
+    .plan-btn {
+      display: block;
+      background: linear-gradient(45deg, #00ff88, #00b3ff);
+      color: #000;
+      text-align: center;
+      padding: 15px;
+      margin: 0 25px 25px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    
+    .plan-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+    }
+    
+    .popular-tag {
+      position: absolute;
+      top: 15px;
+      right: -35px;
+      background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+      color: #fff;
+      padding: 5px 40px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transform: rotate(45deg);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+    
+    .benefits {
+      padding: 60px 0;
+      background: #1a1a1a;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      padding: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .benefit-card {
+      text-align: center;
+      padding: 30px 20px;
+      background: #252525;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .benefit-icon {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #00ff88, #00b3ff);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto 20px;
+      font-size: 1.8rem;
+      color: #000;
+    }
+    
+    .benefit-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 15px;
+      color: #fff;
+    }
+    
+    .benefit-card p {
+      color: #aaa;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+      
+      .hero p {
+        font-size: 1rem;
+      }
+      
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .plans-grid {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">BGMI UC TOPUP</a>
+        <nav>
+          <a href="index.html" class="active">HOME</a>
+          <a href="verify.html">BUY UC</a>
+          <a href="#">HOW TO PAY</a>
+          <a href="#">CONTACT</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Buy BGMI UC at the Best Price</h1>
+      <p>Instant Delivery • 24/7 Support • 100% Safe & Secure</p>
+      <a href="verify.html" class="btn">BUY UC NOW <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- Plans Section -->
+  <section class="plans-section">
+    <div class="section-title">
+      <h2>Popular UC Packages</h2>
+      <p>Choose your favorite UC package and get instant delivery</p>
+    </div>
+    
+    <div class="plans-grid">
+      <!-- UC Plan 1 -->
+      <div class="plan-card">
+        <div class="plan-header">
+          <div class="plan-uc">5200 UC</div>
+          <div class="plan-price">₹420 <span>₹599</span></div>
+          <div class="plan-save">Save 30%</div>
+        </div>
+        <div class="plan-features">
+          <div class="feature">
+            <i class="fas fa-bolt"></i>
+            <span>Instant Delivery</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-shield-alt"></i>
+            <span>100% Safe & Secure</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-headset"></i>
+            <span>24/7 Customer Support</span>
+          </div>
+        </div>
+        <button class="plan-btn" data-plan="5200 UC" data-price="₹420">
+          BUY NOW
+        </button>
+      </div>
+      
+      <!-- UC Plan 2 (Popular) -->
+      <div class="plan-card" style="border: 2px solid #00ff88; transform: scale(1.03);">
+        <div class="popular-tag">POPULAR</div>
+        <div class="plan-header">
+          <div class="plan-uc">10200 UC</div>
+          <div class="plan-price">₹560 <span>₹799</span></div>
+          <div class="plan-save" style="background: rgba(255, 107, 107, 0.2); color: #ff6b6b;">Best Value</div>
+        </div>
+        <div class="plan-features">
+          <div class="feature">
+            <i class="fas fa-bolt"></i>
+            <span>Instant Delivery</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-shield-alt"></i>
+            <span>100% Safe & Secure</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-gift"></i>
+            <span>+ Free 100 UC Bonus</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-headset"></i>
+            <span>24/7 Customer Support</span>
+          </div>
+        </div>
+        <button class="plan-btn" data-plan="10200 UC" data-price="₹560" style="background: linear-gradient(45deg, #ff6b6b, #ff8e53);">
+          BEST DEAL
+        </button>
+      </div>
+      
+      <!-- UC Plan 3 -->
+      <div class="plan-card">
+        <div class="plan-header">
+          <div class="plan-uc">20000 UC</div>
+          <div class="plan-price">₹899 <span>₹1299</span></div>
+          <div class="plan-save">Save 31%</div>
+        </div>
+        <div class="plan-features">
+          <div class="feature">
+            <i class="fas fa-bolt"></i>
+            <span>Instant Delivery</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-shield-alt"></i>
+            <span>100% Safe & Secure</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-gift"></i>
+            <span>+ Free 500 UC Bonus</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-headset"></i>
+            <span>24/7 Customer Support</span>
+          </div>
+        </div>
+        <button class="plan-btn" data-plan="20000 UC" data-price="₹899">
+          BUY NOW
+        </button>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Benefits Section -->
+  <section class="benefits">
+    <div class="section-title">
+      <h2>Why Choose Us</h2>
+      <p>We provide the best UC top-up service for BGMI players</p>
+    </div>
+    
+    <div class="benefits-grid">
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h3>Instant Delivery</h3>
+        <p>Get your UC instantly after payment confirmation. No waiting time!</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>100% Safe</h3>
+        <p>Secure payment methods and guaranteed account safety. Your security is our priority.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3>24/7 Support</h3>
+        <p>Our support team is always ready to help you with any questions or issues.</p>
+      </div>
+      
+      <div class="benefit-card">
+        <div class="benefit-icon">
+          <i class="fas fa-tag"></i>
+        </div>
+        <h3>Best Prices</h3>
+        <p>We offer the most competitive prices in the market with regular discounts and offers.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 BGMI UC TOPUP. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Refund Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Handle plan selection
+    document.addEventListener('DOMContentLoaded', function() {
+      const planButtons = document.querySelectorAll('.plan-btn');
+      
+      planButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const plan = {
+            name: this.getAttribute('data-plan'),
+            price: this.getAttribute('data-price'),
+            delivery: 'Instant Delivery',
+            total: this.getAttribute('data-price')
+          };
+          
+          // Store selected plan in session
+          sessionStorage.setItem('selectedPlan', JSON.stringify(plan));
+          
+          // Redirect to verification page
+          window.location.href = 'verify.html';
+        });
+      });
+    });
+  </script>
+</body>
+</html>

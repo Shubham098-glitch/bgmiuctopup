@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Payment - BGMI UC TOPUP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      color: #00ff88;
+      text-decoration: none;
+      margin-bottom: 20px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .back-button i {
+      margin-right: 8px;
+      transition: transform 0.3s ease;
+    }
+    
+    .back-button:hover {
+      color: #00b3ff;
+    }
+    
+    .back-button:hover i {
+      transform: translateX(-3px);
+    }
+    
+    .payment-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .payment-header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      background: linear-gradient(45deg, #00ff88, #00b3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .payment-header p {
+      color: #ddd;
+      font-size: 1.1rem;
+    }
+    
+    .payment-method {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 1.2rem;
+      color: #00ff88;
+      font-weight: 600;
+    }
+    
+    .qr-container {
+      background: #fff;
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 350px;
+      margin: 0 auto 30px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .qr-code {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .payment-amount {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #333;
+      margin-bottom: 10px;
+    }
+    
+    .payment-details {
+      background: #f5f5f5;
+      border-radius: 10px;
+      padding: 15px;
+      margin-top: 15px;
+      text-align: left;
+    }
+    
+    .payment-details p {
+      margin: 8px 0;
+      color: #555;
+      font-size: 0.95rem;
+    }
+    
+    .payment-details strong {
+      color: #333;
+    }
+    
+    .timer {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #ff6b6b;
+      text-align: center;
+      margin: 25px 0;
+      padding: 15px;
+      background: rgba(255, 107, 107, 0.1);
+      border-radius: 8px;
+    }
+    
+    .instructions {
+      background: #2d2d2d;
+      border-radius: 10px;
+      padding: 25px;
+      margin-top: 30px;
+    }
+    
+    .instructions h3 {
+      color: #00ff88;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+    
+    .instructions ol {
+      padding-left: 20px;
+    }
+    
+    .instructions li {
+      margin-bottom: 10px;
+      color: #ddd;
+      line-height: 1.6;
+    }
+    
+    .status-message {
+      text-align: center;
+      margin: 25px 0;
+      padding: 15px;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+    
+    .success {
+      background: rgba(0, 255, 136, 0.1);
+      color: #00ff88;
+      border: 1px solid rgba(0, 255, 136, 0.3);
+    }
+    
+    .help-section {
+      margin-top: 40px;
+      text-align: center;
+      color: #aaa;
+    }
+    
+    .help-section a {
+      color: #00b3ff;
+      text-decoration: none;
+      font-weight: 500;
+      margin: 0 10px;
+    }
+    
+    .help-section a:hover {
+      text-decoration: underline;
+    }
+    
+    @media (max-width: 480px) {
+      .qr-container {
+        padding: 20px;
+      }
+      
+      .payment-amount {
+        font-size: 1.5rem;
+      }
+      
+      .instructions {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">TOPUP EXTRA</a>
+        <nav>
+          <a href="index.html">HOME</a>
+          <a href="#" class="active">BUY UC</a>
+          <a href="#">HOW TO PAY</a>
+          <a href="#">CONTACT</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Payment Section -->
+  <section class="verification-section">
+    <div class="container">
+      <a href="checkout.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back to Checkout
+      </a>
+      
+      <div class="payment-header">
+        <h1>Complete Your Payment</h1>
+        <p>Scan the QR code below to complete your transaction</p>
+      </div>
+      
+      <div class="payment-container">
+        <div id="paymentMethod" class="payment-method">
+          <!-- Payment method will be inserted here by JavaScript -->
+        </div>
+        
+        <div class="qr-container">
+          <div class="qr-code">
+            <!-- Replace with your actual QR code image -->
+            <img src="https://i.ibb.co/qMRPskjT/Whats-App-Image-2025-07-10-at-4-34-43-AM.jpg" alt="Payment QR Code" style="width: 100%; height: auto;">
+          </div>
+          
+          <div class="payment-amount" id="paymentAmount">
+            <!-- Amount will be inserted here by JavaScript -->
+          </div>
+          
+          <div class="payment-details">
+            <p><strong>UPI ID:</strong> your.upi@example</p>
+            <p><strong>Name:</strong> TOPUP EXTRA</p>
+            <p><strong>Note:</strong> Include your BGMI ID in the payment note</p>
+          </div>
+        </div>
+        
+        <div class="timer" id="paymentTimer">
+          Time remaining: 5:00
+        </div>
+        
+        <div class="status-message success">
+          <i class="fas fa-check-circle"></i> Payment link generated successfully!
+        </div>
+        
+        <div class="instructions">
+          <h3>How to Pay:</h3>
+          <ol>
+            <li>Open your UPI app (PhonePe, Google Pay, Paytm, etc.)</li>
+            <li>Tap on 'Scan QR Code' and scan the code above</li>
+            <li>Verify the payment details and complete the transaction</li>
+            <li>Your UC will be credited within 5-10 minutes after successful payment</li>
+            <li>Keep the transaction ID for future reference</li>
+          </ol>
+        </div>
+        
+        <div class="help-section">
+          <p>Having trouble with the payment? <a href="#">Contact Support</a> or <a href="#">View FAQ</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 TOPUP EXTRA. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Refund Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Set payment method and amount from session storage
+    document.addEventListener('DOMContentLoaded', function() {
+      const paymentMethodElement = document.getElementById('paymentMethod');
+      const paymentAmountElement = document.getElementById('paymentAmount');
+      const storedPaymentMethod = sessionStorage.getItem('selectedPayment');
+      const storedPlan = JSON.parse(sessionStorage.getItem('selectedPlan') || '{}');
+      
+      if (paymentMethodElement && storedPaymentMethod) {
+        const paymentMethodName = storedPaymentMethod === 'phonepay' ? 'PhonePe' : 'Google Pay';
+        paymentMethodElement.textContent = `Pay with ${paymentMethodName}`;
+      }
+      
+      if (paymentAmountElement && storedPlan.price) {
+        paymentAmountElement.textContent = `Pay ${storedPlan.price}`;
+      } else if (paymentAmountElement) {
+        paymentAmountElement.textContent = '₹420'; // Default amount
+      }
+    });
+  </script>
+</body>
+</html>

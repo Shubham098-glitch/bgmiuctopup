@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify BGMI Player ID - BGMI UC TOPUP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">BGMI UC TOPUP</a>
+        <nav>
+          <a href="index.html">HOME</a>
+          <a href="#" class="active">BUY UC</a>
+          <a href="#">HOW TO PAY</a>
+          <a href="#">CONTACT</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Verification Section -->
+  <section class="verification-section">
+    <div class="container">
+      <div class="verification-container fade-in">
+        <h2 class="verification-title">ENTER BGMI PLAYER ID</h2>
+        <p style="text-align: center; margin-bottom: 30px; color: #ddd;">Please enter your BGMI Player ID to continue with your purchase</p>
+        
+        <form id="verifyForm">
+          <div class="input-group">
+            <label for="playerId">BGMI Player ID</label>
+            <input 
+              type="text" 
+              id="playerId" 
+              class="input-field" 
+              placeholder="Enter your BGMI Player ID" 
+              required
+              pattern="[0-9]+"
+              title="Please enter a valid BGMI Player ID (numbers only)"
+            >
+          </div>
+          
+          <button type="submit" id="verifyBtn" class="btn">VERIFY</button>
+          
+          <div class="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Verifying your BGMI Player ID...</p>
+          </div>
+          
+          <div class="success-message">
+            <i class="fas fa-check-circle" style="font-size: 2rem; margin-bottom: 10px;"></i>
+            <p>Player ID successfully verified!</p>
+          </div>
+          
+          <a href="checkout.html" id="checkoutBtn" class="btn" style="display: none; margin-top: 20px; background: #ff6b6b;">
+            GO TO CHECKOUT <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+          </a>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 BGMI UC TOPUP. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Refund Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

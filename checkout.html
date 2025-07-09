@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - BGMI UC TOPUP</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .back-button {
+      display: inline-flex;
+      align-items: center;
+      color: #00ff88;
+      text-decoration: none;
+      margin-bottom: 20px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+    
+    .back-button i {
+      margin-right: 8px;
+      transition: transform 0.3s ease;
+    }
+    
+    .back-button:hover {
+      color: #00b3ff;
+    }
+    
+    .back-button:hover i {
+      transform: translateX(-3px);
+    }
+    
+    .checkout-header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    
+    .checkout-header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+      background: linear-gradient(45deg, #00ff88, #00b3ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    
+    .checkout-header p {
+      color: #ddd;
+      font-size: 1.1rem;
+    }
+    
+    .payment-option {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 25px 15px;
+      transition: all 0.3s ease;
+    }
+    
+    .payment-option.active {
+      border: 2px solid #00ff88;
+      background: rgba(0, 255, 136, 0.05);
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(0, 255, 136, 0.1);
+    }
+    
+    .payment-option img {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 15px;
+    }
+    
+    .order-details {
+      background: #2d2d2d;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 30px;
+    }
+    
+    .order-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 12px 0;
+      border-bottom: 1px solid #3d3d3d;
+    }
+    
+    .order-row:last-child {
+      border-bottom: none;
+      padding-top: 15px;
+      margin-top: 10px;
+      border-top: 1px solid #3d3d3d;
+    }
+    
+    .order-row .label {
+      color: #aaa;
+    }
+    
+    .order-row .value {
+      font-weight: 600;
+      color: #fff;
+    }
+    
+    #total .value {
+      color: #00ff88;
+      font-size: 1.3rem;
+    }
+    
+    .continue-btn {
+      display: block;
+      width: 100%;
+      padding: 15px;
+      background: linear-gradient(45deg, #00ff88, #00b3ff);
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: center;
+      margin-top: 30px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    
+    .continue-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+    }
+    
+    .continue-btn:disabled {
+      background: #666;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <a href="index.html" class="logo">BGMI UC TOPUP</a>
+        <nav>
+          <a href="index.html">HOME</a>
+          <a href="#" class="active">BUY UC</a>
+          <a href="#">HOW TO PAY</a>
+          <a href="#">CONTACT</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- Checkout Section -->
+  <section class="verification-section">
+    <div class="container">
+      <a href="verify.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back to Verification
+      </a>
+      
+      <div class="checkout-header">
+        <h1>Complete Your Purchase</h1>
+        <p>Review your order and select a payment method</p>
+      </div>
+      
+      <div class="checkout-container">
+        <div class="order-summary">
+          <h3 class="section-title">Order Summary</h3>
+          
+          <div class="order-details">
+            <div class="order-row">
+              <span class="label">BGMI Player ID:</span>
+              <span class="value" id="playerIdDisplay"></span>
+            </div>
+            <div class="order-row">
+              <span class="label">UC Plan:</span>
+              <span class="value" id="planName">5200 UC</span>
+            </div>
+            <div class="order-row">
+              <span class="label">Price:</span>
+              <span class="value" id="planPrice">₹420</span>
+            </div>
+            <div class="order-row">
+              <span class="label">Delivery:</span>
+              <span class="value" id="delivery">Instant Delivery</span>
+            </div>
+            <div class="order-row" id="total">
+              <span class="label">Total Amount:</span>
+              <span class="value" id="totalAmount">₹420</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="payment-methods">
+          <h3 class="section-title">Select Payment Method</h3>
+          
+          <div class="payment-options">
+            <div class="payment-option" data-method="phonepay">
+              <img src="https://i.ibb.co/8np7Rr14/images.png" alt="PhonePe" style="width: 80px; height: 80px; object-fit: contain;">
+              <p>PhonePe</p>
+            </div>
+            <div class="payment-option" data-method="gpay">
+              <img src="https://i.ibb.co/gZ2tJpvy/Frame-43-1.webp" alt="Google Pay" style="width: 80px; height: 80px; object-fit: contain;">
+              <p>Google Pay</p>
+            </div>
+          </div>
+          
+          <button id="continueToPayment" class="continue-btn" disabled>
+            CONTINUE TO PAYMENT <i class="fas fa-arrow-right" style="margin-left: 10px;"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 BGMI UC TOPUP. All rights reserved.</p>
+      <div class="footer-links">
+        <a href="#">Terms of Service</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Refund Policy</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Handle payment method selection
+    const paymentOptions = document.querySelectorAll('.payment-option');
+    const continueBtn = document.getElementById('continueToPayment');
+    
+    paymentOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        // Remove active class from all options
+        paymentOptions.forEach(opt => opt.classList.remove('active'));
+        // Add active class to selected option
+        this.classList.add('active');
+        
+        // Enable continue button
+        continueBtn.disabled = false;
+        
+        // Store selected payment method
+        const paymentMethod = this.getAttribute('data-method');
+        sessionStorage.setItem('selectedPayment', paymentMethod);
+      });
+    });
+    
+    // Handle continue to payment button click
+    continueBtn.addEventListener('click', function() {
+      window.location.href = 'payment.html';
+    });
+  </script>
+</body>
+</html>
